@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #111; /* Fundo mais escuro para suspense */
+            color: #ffffff;
+            overflow: hidden; /* Oculta a barra de rolagem vertical do navegador */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        /* Estilizando a barra de rolagem */
+        body::-webkit-scrollbar {
+            width: 12px; /* Largura da barra de rolagem */
+        }
+
+        body::-webkit-scrollbar-track {
+            background-color: #111; /* Cor da trilha da barra de rolagem (cor do fundo do site) */
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background-color: #555; /* Cor do "polegar" (thumb) da barra de rolagem */
+            border-radius: 6px; /* Borda arredondada do "polegar" */
+        }
+
+        body::-webkit-scrollbar-thumb:hover {
+            background-color: #777; /* Cor do "polegar" ao passar o mouse */
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            font-family: 'Arial', sans-serif;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Cor de fundo semi-transparente */
+            justify-content: center;
+            align-items: center;
+            z-index: 999; /* Garante que o modal está acima de outros elementos */
+        }
+
+        .modal-content {
+            background-color: #111; /* Cor do fundo do modal */
+            padding: 20px;
+            border-radius: 10px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .close-btn {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .mission-button {
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+    margin: 10px 0; /* Adicionando espaçamento vertical entre os botões */
+    border-radius: 10px; /* Adicionando bordas arredondadas */
+}
+
+
+        .mission-button:hover {
+            transform: scale(1.1);
+            background-color: #555;
+        }
+
+        .teste {
+            text-align: center;
+            margin: 50px 0; /* Adiciona espaço acima e abaixo da classe "teste" */
+        }
+
+        .teste h1 {
+            font-size: 36px;
+        }
+
+        .teste p {
+            font-size: 18px;
+            line-height: 1.5; /* Ajusta a altura da linha para melhor legibilidade */
+        }
+
+        .membros {
+            text-align: center;
+            margin: 20px 0; /* Adiciona espaço acima e abaixo da classe "membros" */
+        }
+
+        .membros h1 {
+            font-size: 36px;
+        }
+
+        .membro-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap; /* Permite que os membros quebrem para a próxima linha se o espaço for insuficiente */
+            margin: 20px 0; /* Adiciona espaço acima e abaixo dos membros */
+        }
+
+        .membro {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 0 10px 20px; /* Adiciona espaço entre os membros e abaixo deles */
+            transition: transform 0.3s; /* Adiciona transição de transformação */
+        }
+
+        .membro img {
+            width: 100px;
+            height: 100px;
+            border-radius: 30%;
+            margin-bottom: 10px; /* Adiciona espaço entre a imagem e o nome */
+        }
+
+        .membro h2 {
+            font-size: 18px;
+            margin: 0; /* Remove a margem padrão do h2 */
+        }
+
+        .membro:hover {
+            transform: scale(1.1); /* Efeito de aumento ao passar o mouse */
+        }
+    </style>
+    <title>Site de Suspense</title>
+</head>
+<body>
+    <div class="container">
+        <div class="teste">
+            <h1>Milícia</h1>
+            <p>
+                Bem-vindos à nossa plataforma exclusiva da Sombra. Este é o epicentro de nossas operações, onde <br>
+                compartilharemos as missões e informações cruciais fora do alcance indesejado dos olhos curiosos.<br>
+                Aqui, a discrição é nossa maior aliada, e cada missão é um elo na corrente que molda nosso destino.
+            </p>
+        </div>
+
+        <button class="mission-button" id="mission1">Missão 1</button> 
+
+
+        <div class="membros">
+            <h1>Membros</h1>
+            <div class="membro-container">
+                <div class="membro">
+                    <img src="img/a.png" alt="Membro 1">
+                    <h2>???</h2>
+                </div>
+                <div class="membro">
+                    <img src="img/a.png" alt="Membro 2">
+                    <h2>???</h2>
+                </div>
+                <div class="membro">
+                    <img src="img/a.png" alt="Membro 3">
+                    <h2>???</h2>
+                </div>
+                <div class="membro">
+                    <img src="img/a.png" alt="Membro 3">
+                    <h2>???</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Missão -->
+    <div id="modalMission" class="modal">
+        <div class="modal-content">
+            <h2>Missão 1º: O agente de 2 caras..</h2>
+<p><strong>Objetivo:</strong> Um agente de duas faces que atua tanto no âmbito legal quanto no ilegal está escondido na cidade Zuka, numa mansão local. <br>Ele conta com diversos seguranças fortemente armados!<br>
+Ele possui um contato que é de extrema importância para nós, e precisamos neutralizar esse agente para nos tornarmos o principal fornecedor do chefe.<br>
+Não será uma tarefa fácil! Devemos empregar todos os esforços para derrubar esse agente.</p>
+            <button class="close-btn" onclick="fecharModal()">Fechar</button>
+        </div>
+    </div>
+    <div class="milicia">
+        <h1 style="font-family: 'Homemade Apple', cursive;">Milícia</h1>
+    </div>
+    <script>
+        // Função para abrir o modal
+        function abrirModal() {
+            document.getElementById('modalMission').style.display = 'flex';
+        }
+
+        // Função para fechar o modal
+        function fecharModal() {
+            document.getElementById('modalMission').style.display = 'none';
+        }
+
+        // Adicionando um ouvinte de eventos ao botão
+        document.getElementById('mission1').addEventListener('click', abrirModal);
+    </script>
+</body>
+</html>
